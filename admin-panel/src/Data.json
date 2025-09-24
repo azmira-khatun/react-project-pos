@@ -1,0 +1,27 @@
+[ 
+    { 
+        "id": 1,
+        "name":"mr",
+        "address": "Dhaka"
+    },
+    { 
+        "id": 2,
+        "name":"A",
+        "address": "Dhaka"
+    },
+    { 
+        "id": 3,
+        "name":"B",
+        "address": "Mirpur"
+    },
+    { 
+        "id": 4,
+        "name":"C",
+        "address": "Jatrabari"
+    },
+    { 
+        "id": 5,
+        "name":"mr",
+        "address": "Dhanmondi"
+    }
+]
