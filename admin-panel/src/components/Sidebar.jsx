@@ -137,16 +137,36 @@ const Sidebar = () => {
                                         </Link>
                                     </li>
                                 </ul>
-                            </li>                     
-              <li className="nav-item">
-                <a href="pages/widgets.html" className="nav-link">
-                  <i className="nav-icon fas fa-th" />
-                  <p>
-                    Widgets
-                    <span className="right badge badge-danger">New</span>
-                  </p>
-                </a>
-              </li>
+                            </li>  
+                             <li className={`nav-item ${isCategoryMenuOpen ? 'menu-open' : ''}`}>
+                                <a href="#" className="nav-link" onClick={toggleCategoryMenu}>
+                                    <i className="nav-icon fas fa-book" />
+                                    <p>
+                                        Product
+                                        <i className="fas fa-angle-left right" />
+                                    </p>
+                                </a>
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/add-category" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Add Cat</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/manage-category" className="nav-link">
+                                            <i className="far fa-circle nav-icon" />
+                                            <p>Manage Category</p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>  
+
+
+
+
+
+              
               <li className="nav-item">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-copy" />
