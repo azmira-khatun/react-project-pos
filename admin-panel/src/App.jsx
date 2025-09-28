@@ -6,6 +6,8 @@ import AddUser from "./pages/users/AddUser";
 import AddCategory from "./pages/category/AddCategory";
 import ManageCategory from "./pages/category/ManageCategory";
 import ManageUser from "./pages/users/ManageUsers";
+import AddProduct from "./pages/product/AddProduct";
+import ProductTable from "./pages/product/ManageProduct";
 const App = () => {
   return (
     <div>
@@ -16,6 +18,8 @@ const App = () => {
           <Route path="/manage-user" element={<ManageUser />} />
           <Route path="/add-category" element={<AddCategory />} />
           <Route path="/manage-category" element={<ManageCategory />} />
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/manage-product" element={<ProductTable />} />
         </Routes>
       </BrowserRouter>
     </div>
