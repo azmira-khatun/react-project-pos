@@ -21,10 +21,7 @@ const AddUser = () => {
               <div className="row mb-2">
                 <div className="col-sm-6">
                   <ol className="breadcrumb float-sm-right">
-                    <li className="breadcrumb-item">
-                      <a href="#">Home</a>
-                    </li>
-                    <li className="breadcrumb-item active">Blank Page</li>
+                    <li className="breadcrumb-item active">Add User</li>
                   </ol>
                 </div>
               </div>
@@ -33,84 +30,99 @@ const AddUser = () => {
           </section>
           {/* Main content */}
           <section className="content">
-            {/* Default box */}
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-8">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-6 offset-md-3"> 
+                  
+                  {/* AdminLTE Card Component */}
+                  <div className="card card-primary">
+                    <div className="card-header" style={{backgroundColor: '#007bff'}}>
+                        <h3 className="card-title">User Information</h3>
+                    </div>
+
                     <form>
                       <div className="card-body">
+                        
+                        {/* 1. Full Name Field */}
                         <div className="form-group">
-                          <label htmlFor="exampleInputEmail1">
-                            Email address
-                          </label>
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Full Name"
+                            // স্ট্যাটিক ফর্মে value বা onChange লাগবে না
+                          />
+                        </div>
+
+                        {/* 2. Username Field */}
+                        <div className="form-group">
+                          <input
+                            type="text"
+                            className="form-control"
+                            id="username"
+                            name="username"
+                            placeholder="Username"
+                          />
+                        </div>
+
+                        {/* 3. Email Field */}
+                        <div className="form-group">
                           <input
                             type="email"
                             className="form-control"
-                            id="exampleInputEmail1"
-                            placeholder="Enter email"
+                            id="email"
+                            name="email"
+                            placeholder="Email"
                           />
                         </div>
+
+                        {/* 4. Password Field */}
                         <div className="form-group">
-                          <label htmlFor="exampleInputPassword1">
-                            Password
-                          </label>
                           <input
                             type="password"
                             className="form-control"
-                            id="exampleInputPassword1"
+                            id="password"
+                            name="password"
                             placeholder="Password"
                           />
                         </div>
+
+                        {/* 5. Select Role Dropdown */}
                         <div className="form-group">
-                          <label htmlFor="exampleInputFile">File input</label>
-                          <div className="input-group">
-                            <div className="custom-file">
-                              <input
-                                type="file"
-                                className="custom-file-input"
-                                id="exampleInputFile"
-                              />
-                              <label
-                                className="custom-file-label"
-                                htmlFor="exampleInputFile"
-                              >
-                                Choose file
-                              </label>
-                            </div>
-                            <div className="input-group-append">
-                              <span className="input-group-text">Upload</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="form-check">
-                          <input
-                            type="checkbox"
-                            className="form-check-input"
-                            id="exampleCheck1"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="exampleCheck1"
+                          <select
+                            className="form-control"
+                            id="role"
+                            name="role"
                           >
-                            Check me out
-                          </label>
+                            <option value="">Select Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="manager">Manager</option>
+                            <option value="employee">Employee</option>
+                          </select>
                         </div>
                       </div>
                       {/* /.card-body */}
-                      <div className="card-footer">
-                        <button type="submit" className="btn btn-primary">
-                          Submit
+                      
+                      {/* Card Footer (Add User Button) */}
+                      <div className="card-footer p-0">
+                        <button 
+                            type="submit" 
+                            className="btn btn-primary btn-block p-3" 
+                            style={{borderRadius: 0}}
+                        >
+                          Add User
                         </button>
                       </div>
                     </form>
+                    {/* /.form */}
                   </div>
+                  {/* /.card */}
                 </div>
               </div>
-              {/* /.card-body */}
             </div>
-            {/* /.card */}
           </section>
+          {/* /.content */}
           {/* /.content */}
         </div>
         {/* /.content-wrapper */}
