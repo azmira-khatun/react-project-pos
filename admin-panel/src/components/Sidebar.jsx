@@ -2,22 +2,42 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  // মেনু আইটেমগুলোর জন্য স্টেট
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
-  // যদি আরও মেনু থাকে, তার জন্য এখানে স্টেট যুক্ত করুন
+  const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
+  const [isVendorMenuOpen, setIsVendorMenuOpen] = useState(false);
 
   // হ্যান্ডলার ফাংশন
   const toggleUserMenu = (e) => {
     e.preventDefault();
-    setIsUserMenuOpen(!isUserMenuOpen); // User মেনুর স্টেট টগল করবে
-    setIsCategoryMenuOpen(false); // অন্য মেনু বন্ধ করে দেবে
+    setIsUserMenuOpen(!isUserMenuOpen);
+    setIsCategoryMenuOpen(false);
+    setIsProductMenuOpen(false);
+    setIsVendorMenuOpen(false);
   };
 
   const toggleCategoryMenu = (e) => {
     e.preventDefault();
-    setIsCategoryMenuOpen(!isCategoryMenuOpen); // Category মেনুর স্টেট টগল করবে
-    setIsUserMenuOpen(false); // অন্য মেনু বন্ধ করে দেবে
+    setIsCategoryMenuOpen(!isCategoryMenuOpen);
+    setIsUserMenuOpen(false);
+    setIsProductMenuOpen(false);
+    setIsVendorMenuOpen(false);
+  };
+
+  const toggleProductMenu = (e) => {
+    e.preventDefault();
+    setIsProductMenuOpen(!isProductMenuOpen);
+    setIsUserMenuOpen(false);
+    setIsCategoryMenuOpen(false);
+    setIsVendorMenuOpen(false);
+  };
+
+  const toggleVendorMenu = (e) => {
+    e.preventDefault();
+    setIsVendorMenuOpen(!isVendorMenuOpen);
+    setIsUserMenuOpen(false);
+    setIsCategoryMenuOpen(false);
+    setIsProductMenuOpen(false);
   };
 
   return (
@@ -141,9 +161,9 @@ const Sidebar = () => {
                 </ul>
               </li>
               <li
-                className={`nav-item ${isCategoryMenuOpen ? "menu-open" : ""}`}
+                className={`nav-item ${isProductMenuOpen ? "menu-open" : ""}`}
               >
-                <a href="#" className="nav-link" onClick={toggleCategoryMenu}>
+                <a href="#" className="nav-link" onClick={toggleProductMenu}>
                   <i className="nav-icon fas fa-book" />
                   <p>
                     Product
@@ -166,86 +186,24 @@ const Sidebar = () => {
                 </ul>
               </li>
 
-              <li className="nav-item">
-                <a href="#" className="nav-link">
-                  <i className="nav-icon fas fa-copy" />
+              <li className={`nav-item ${isVendorMenuOpen ? "menu-open" : ""}`}>
+                <a href="#" className="nav-link" onClick={toggleVendorMenu}>
+                  <i className="nav-icon fas fa-book" />
                   <p>
-                    Layout Options
+                    Vendors
                     <i className="fas fa-angle-left right" />
-                    <span className="badge badge-info right">6</span>
                   </p>
                 </a>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <a href="pages/layout/top-nav.html" className="nav-link">
+                    <Link to="/manage-vendor" className="nav-link">
                       <i className="far fa-circle nav-icon" />
-                      <p>Top Navigation</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="pages/layout/top-nav-sidebar.html"
-                      className="nav-link"
-                    >
-                      <i className="far fa-circle nav-icon" />
-                      <p>Top Navigation + Sidebar</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="pages/layout/boxed.html" className="nav-link">
-                      <i className="far fa-circle nav-icon" />
-                      <p>Boxed</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="pages/layout/fixed-sidebar.html"
-                      className="nav-link"
-                    >
-                      <i className="far fa-circle nav-icon" />
-                      <p>Fixed Sidebar</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="pages/layout/fixed-sidebar-custom.html"
-                      className="nav-link"
-                    >
-                      <i className="far fa-circle nav-icon" />
-                      <p>
-                        Fixed Sidebar <small>+ Custom Area</small>
-                      </p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="pages/layout/fixed-topnav.html"
-                      className="nav-link"
-                    >
-                      <i className="far fa-circle nav-icon" />
-                      <p>Fixed Navbar</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="pages/layout/fixed-footer.html"
-                      className="nav-link"
-                    >
-                      <i className="far fa-circle nav-icon" />
-                      <p>Fixed Footer</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a
-                      href="pages/layout/collapsed-sidebar.html"
-                      className="nav-link"
-                    >
-                      <i className="far fa-circle nav-icon" />
-                      <p>Collapsed Sidebar</p>
-                    </a>
+                      <p>Manage Vendors</p>
+                    </Link>
                   </li>
                 </ul>
               </li>
+
               <li className="nav-item">
                 <a href="#" className="nav-link">
                   <i className="nav-icon fas fa-chart-pie" />
