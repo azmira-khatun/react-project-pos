@@ -9,6 +9,7 @@ import ManageUser from "./pages/users/ManageUsers";
 import AddProduct from "./pages/product/AddProduct";
 import ProductTable from "./pages/product/ManageProduct";
 import VendorManagement from "./pages/vendors/VendorManagement";
+import CustomerManagement from "./pages/customer/CustomerManagement";
 const App = () => {
   return (
     <div>
@@ -22,6 +23,8 @@ const App = () => {
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/manage-product" element={<ProductTable />} />
           <Route path="/manage-vendor" element={<VendorManagement />} />
+          <Route path="/customer-management" element={<CustomerManagement />} />
+
         </Routes>
       </BrowserRouter>
     </div>
