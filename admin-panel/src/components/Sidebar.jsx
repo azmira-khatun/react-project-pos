@@ -80,7 +80,7 @@ const Sidebar = () => {
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
-          <span className="brand-text font-weight-light">DREAM POS</span>
+          <span className="brand-text font-weight-light">POSential</span>
         </a>
 
         {/* Sidebar */}
