@@ -23,7 +23,9 @@ const AddCategory = () => {
                 </div>
                 <div className="col-sm-6">
                   <ol className="breadcrumb float-sm-right">
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                    <li className="breadcrumb-item">
+                      <a href="#">Home</a>
+                    </li>
                     <li className="breadcrumb-item active">Add Category</li>
                   </ol>
                 </div>
@@ -37,17 +39,18 @@ const AddCategory = () => {
               <div className="row">
                 {/* ফর্মের কলাম: এটি ফর্মটিকে মাঝের দিকে রাখবে */}
                 <div className="col-md-6 offset-md-3">
-                  
                   {/* AdminLTE Card Component (যদি প্রয়োজন হয় তবে কার্ড ব্যবহার করতে পারেন) */}
                   <div className="card card-primary">
-                    <div className="card-header" style={{ backgroundColor: '#007bff' }}>
-                        <h3 className="card-title">Category Details</h3>
+                    <div
+                      className="card-header"
+                      style={{ backgroundColor: "#007bff" }}
+                    >
+                      <h3 className="card-title">Category Details</h3>
                     </div>
 
                     {/* Form Start */}
                     <form>
                       <div className="card-body">
-                        
                         {/* 1. Category Name Field */}
                         <div className="form-group">
                           <input
@@ -59,31 +62,23 @@ const AddCategory = () => {
                             // স্ট্যাটিক ফর্মে value বা onChange লাগবে না
                           />
                         </div>
-
-                        {/* 2. Select Parent Category Dropdown */}
                         <div className="form-group">
-                          <select
+                          <input
+                            type="text"
                             className="form-control"
-                            id="parentCategory"
-                            name="parentCategory"
+                            id="note"
+                            name="note"
+                            placeholder="Note"
                             // স্ট্যাটিক ফর্মে value বা onChange লাগবে না
-                          >
-                            <option value="">Select Parent Category (Optional)</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="clothing">Clothing</option>
-                            <option value="groceries">Groceries</option>
-                            {/* এখানে API থেকে লোড হওয়া অন্যান্য ক্যাটাগরি থাকবে */}
-                          </select>
+                          />
                         </div>
                       </div>
-                      {/* /.card-body */}
-                      
                       {/* Card Footer (Add Category Button) */}
                       <div className="card-footer p-0">
-                        <button 
-                            type="submit" 
-                            className="btn btn-primary btn-block p-3" 
-                            style={{ borderRadius: 0 }}
+                        <button
+                          type="submit"
+                          className="btn btn-primary btn-block p-3"
+                          style={{ borderRadius: 0 }}
                         >
                           Add Category
                         </button>

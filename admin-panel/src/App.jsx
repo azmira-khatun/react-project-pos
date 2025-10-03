@@ -10,12 +10,15 @@ import AddProduct from "./pages/product/AddProduct";
 import ProductTable from "./pages/product/ManageProduct";
 import VendorManagement from "./pages/vendors/VendorManagement";
 import CustomerManagement from "./pages/customer/CustomerManagement";
+import Dashboard from "./pages/dashboard/Dashboard";
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Master />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+
           <Route path="/add-user" element={<AddUser />} />
           <Route path="/manage-user" element={<ManageUser />} />
           <Route path="/add-category" element={<AddCategory />} />

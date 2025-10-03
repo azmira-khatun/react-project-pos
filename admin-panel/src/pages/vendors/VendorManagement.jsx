@@ -5,9 +5,24 @@ import Footer from "../../components/Footer";
 
 const VendorManagement = () => {
   const [vendors, setVendors] = useState([
-    { id: 1, name: "Vendor One", email: "vendor1@example.com", phone: "0123456789" },
-    { id: 2, name: "Vendor Two", email: "vendor2@example.com", phone: "01711111111" },
-    { id: 3, name: "Vendor Three", email: "vendor3@example.com", phone: "01822222222" },
+    {
+      id: 1,
+      name: "Vendor One",
+      email: "vendor1@example.com",
+      phone: "0123456789",
+    },
+    {
+      id: 2,
+      name: "Vendor Two",
+      email: "vendor2@example.com",
+      phone: "01711111111",
+    },
+    {
+      id: 3,
+      name: "Vendor Three",
+      email: "vendor3@example.com",
+      phone: "01822222222",
+    },
   ]);
 
   const [formData, setFormData] = useState({
@@ -36,7 +51,14 @@ const VendorManagement = () => {
     if (formData.id !== null) {
       // Update existing vendor
       const updated = vendors.map((v) =>
-        v.id === formData.id ? { ...v, name: formData.name, email: formData.email, phone: formData.phone } : v
+        v.id === formData.id
+          ? {
+              ...v,
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+            }
+          : v,
       );
       setVendors(updated);
     } else {
@@ -136,14 +158,19 @@ const VendorManagement = () => {
                     </div>
                   </div>
                 </div>
-                <button type="submit" className={`btn mt-3 ${formData.id !== null ? "btn-warning" : "btn-success"}`}>
+                <button
+                  type="submit"
+                  className={`btn mt-3 ${formData.id !== null ? "btn-warning" : "btn-success"}`}
+                >
                   {formData.id !== null ? "Update Vendor" : "Add Vendor"}
                 </button>
                 {formData.id !== null && (
                   <button
                     type="button"
                     className="btn btn-secondary mt-3 ml-2"
-                    onClick={() => setFormData({ id: null, name: "", email: "", phone: "" })}
+                    onClick={() =>
+                      setFormData({ id: null, name: "", email: "", phone: "" })
+                    }
                   >
                     Cancel
                   </button>

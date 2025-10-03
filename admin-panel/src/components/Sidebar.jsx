@@ -7,7 +7,7 @@ const Sidebar = () => {
   const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const [isVendorMenuOpen, setIsVendorMenuOpen] = useState(false);
   const [isCustomerMenuOpen, setIsCustomerMenuOpen] = useState(false);
-
+  const [isPurchasesMenuOpen, setIsPurchasesMenuOpen] = useState(false);
 
   // হ্যান্ডলার ফাংশন
   const toggleUserMenu = (e) => {
@@ -17,7 +17,7 @@ const Sidebar = () => {
     setIsProductMenuOpen(false);
     setIsVendorMenuOpen(false);
     setIsCustomerMenuOpen(false);
-
+    setIsPurchasesMenuOpen(false);
   };
 
   const toggleCategoryMenu = (e) => {
@@ -27,7 +27,7 @@ const Sidebar = () => {
     setIsProductMenuOpen(false);
     setIsVendorMenuOpen(false);
     setIsCustomerMenuOpen(false);
-
+    setIsPurchasesMenuOpen(false);
   };
 
   const toggleProductMenu = (e) => {
@@ -37,7 +37,7 @@ const Sidebar = () => {
     setIsCategoryMenuOpen(false);
     setIsVendorMenuOpen(false);
     setIsCustomerMenuOpen(false);
-
+    setIsPurchasesMenuOpen(false);
   };
 
   const toggleVendorMenu = (e) => {
@@ -47,7 +47,7 @@ const Sidebar = () => {
     setIsCategoryMenuOpen(false);
     setIsProductMenuOpen(false);
     setIsCustomerMenuOpen(false);
-
+    setIsPurchasesMenuOpen(false);
   };
   const toggleCustomerMenu = (e) => {
     e.preventDefault();
@@ -56,7 +56,16 @@ const Sidebar = () => {
     setIsCategoryMenuOpen(false);
     setIsProductMenuOpen(false);
     setIsCustomerMenuOpen(false);
-
+    setIsPurchasesMenuOpen(false);
+  };
+  const togglePurchasesMenu = (e) => {
+    e.preventDefault();
+    setIsVendorMenuOpen(!isPurchasesMenuOpen);
+    setIsUserMenuOpen(false);
+    setIsCategoryMenuOpen(false);
+    setIsProductMenuOpen(false);
+    setIsCustomerMenuOpen(false);
+    setIsPurchasesMenuOpen(false);
   };
 
   return (
@@ -66,12 +75,12 @@ const Sidebar = () => {
         {/* Brand Logo */}
         <a href="index3.html" className="brand-link">
           <img
-            src="assets-admin/dist/img/images.jpeg"
+            src="assets-admin/dist/img/download.png"
             alt="AdminLTE Logo"
             className="brand-image img-circle elevation-3"
             style={{ opacity: ".8" }}
           />
-          <span className="brand-text font-weight-light">DREAM POS</span>
+          <span className="brand-text font-weight-light">POSential</span>
         </a>
 
         {/* Sidebar */}
@@ -117,15 +126,15 @@ const Sidebar = () => {
               data-accordion="false"
             >
               {/* 1. Dashboard (স্থায়ীভাবে খোলা রাখতে menu-open ক্লাস ব্যবহার করা হয়েছে) */}
-              <li className="nav-item menu-open">
-                <a href="#" className="nav-link active">
+              <li className="nav-item">
+                {/* Use Link directly for navigation */}
+                <Link to="/dashboard" className="nav-link active">
+                  {/* The first icon, often for the main menu item */}
                   <i className="nav-icon fas fa-tachometer-alt" />
-                  <p>
-                    Dashboard
-                    <i className="right fas fa-angle-left" />
-                  </p>
-                </a>
-                {/* ড্যাশবোর্ডের সাব-মেনুগুলো কমেন্ট করা আছে */}
+                  <p>Dashboard</p>
+                </Link>
+                {/* No need for the second icon (<i className="far fa-circle nav-icon" />) 
+        if this is a single, non-dropdown item. */}
               </li>
 
               {/* 2. User Menu Item (State Controlled) */}
@@ -223,7 +232,9 @@ const Sidebar = () => {
                 </ul>
               </li>
 
-              <li className={`nav-item ${isCustomerMenuOpen ? "menu-open" : ""}`}>
+              <li
+                className={`nav-item ${isCustomerMenuOpen ? "menu-open" : ""}`}
+              >
                 <a href="#" className="nav-link" onClick={toggleCustomerMenu}>
                   <i className="nav-icon fas fa-book" />
                   <p>
@@ -236,6 +247,38 @@ const Sidebar = () => {
                     <Link to="/customer-management" className="nav-link">
                       <i className="far fa-circle nav-icon" />
                       <p>Manage Customers</p>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
+              <li
+                className={`nav-item ${isPurchasesMenuOpen ? "menu-open" : ""}`}
+              >
+                <a href="#" className="nav-link" onClick={togglePurchasesMenu}>
+                  <i className="nav-icon fas fa-book" />
+                  <p>
+                    Purchases
+                    <i className="fas fa-angle-left right" />
+                  </p>
+                </a>
+                <ul className="nav nav-treeview">
+                  <li className="nav-item">
+                    <Link to="/create-purchases" className="nav-link">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Create-Purchases</p>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/purchases-history" className="nav-link">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Purchase History</p>
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link to="/return-purchases" className="nav-link">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Purchase Return</p>
                     </Link>
                   </li>
                 </ul>
@@ -276,26 +319,6 @@ const Sidebar = () => {
                   </li>
                 </ul>
               </li>
-              
-              
-              
-             
-               
-              
-              
-              
-             
-              
-              
-              
-                
-              
-              
-              
-                
-             
-              
-              
             </ul>
           </nav>
           {/* /.sidebar-menu */}
